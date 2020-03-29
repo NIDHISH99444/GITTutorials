@@ -1,0 +1,129 @@
+Git Steps 
+
+-->Git bash terminal
+
+$ git config --global user.name "nidhish"
+$ git config --global user.email "nidhish99444@gmail.com"
+$ git config --list
+
+$git init -->to create it as git repo
+$ git status 
+$ git add . (to add files to staging area)
+$ git commit -m "Initial Commit"
+$ git log
+$ rm -rf .git 
+
+$git clone <git repo name>
+-------------------------
+Making .gitignore(video 7)
+
+$touch error.log 
+$ touch .gitignore
+Write error.log inside .gitignore
+-->this will remove the error.log file for further commit 
+--------------------------------------
+Checking git diff command(video 8 )
+
+$ git diff
+Git diff compares working directory with staging area
+$ git diff  --staged 
+This compares your staging area with the last commit 
+-----------------------------------------------------
+Skipping staging area(not recommended)(video 9)
+>Here all the tracked file(which were already there just modified) will go not the untracked file
+git commit -a -m "commit message"
+----------------------------------------------
+Moving and renaming files in GIT (video 10)[can rewatch]
+
+->Removing a git file 
+	$ git rm <filename>
+	This will remove the file and move to staging area
+-->Rename a git file 
+	$ git mv <source_file_name> <destination_file_name>
+-->If we add a file in .gitignore then if we make change in that file<index4.txt> it will still reflect on "git status"
+$ git rm --cached index4.txt  [remove a file from untraced area]
+This will stop tracking this file from now on ..(also used if you have file which is untraced and you want to remove it from that area)
+
+---------------------------------------------------
+Viewing and Changing  commits in git (video 11)
+
+$ git clone https://github.com/LavishGulati/Competitive-Programming-CodingNinjas.git <folder_name_whichYouWantTogiveToRepo>
+$git log -p 
+Show all the changes which were made in each commit 
+$git log -p -2 
+Whill sho the last 2 commit 
+$ git log --stat
+Shows commits in consise way 
+$git log --pretty=oneline
+$git log --pretty=short
+$git log --pretty=full
+ 
+$git log --since=2.years
+$git log --since=2.days
+
+Usefull git log documentation link 
+https://git-scm.com/docs/git-log
+$ git log --pretty="%h-->%ae"
+Getting authour there abbrivated hash and email address
+$git commit --amend
+
+----------------------------------------- 
+Unstaging and unmodifying files in GIT(video 12)
+
+-->to unstage a file from staging area
+$git restore -staged <fileName>
+--> to remove a file from untracked area 
+$ git checkout -- <fileName>
+--> if you want to go to previous commit 
+$ git checkout -f 
+
+---------------------------------------------
+Working with remote repository (Video 13)
+Making Github repository 
+then in git 
+1> git remote add origin https://github.com/NIDHISH99444/abc.git
+2> git push -u origin master 
+Putting our content from Git to Github 
+
+Moving file from untracked are to direct commit (skipping staging area)
+1>git add .
+2> git commit -a -m "commit message"
+
+----------------------------------------------
+Setting alias (Video 14)
+1> git config --global alias.br branch
+
+-----------------------------------
+Creating and Switching Branch (video 15) 
+Creating a new branch 
+1> git checkout -b newbranch
+Switching branch 
+2>git checkout master 
+List all branch 
+3> git branch
+Merging a branch to master (goto master)
+4> git merge newBranchName
+
+-----------------------------------------
+Resolving merge conflict(video 17)
+1>git branch -v
+Show which all branch  are merged
+2> git branch --merged
+Show which branch are not merged to master
+3> git branch --no-merged
+Deleting a branch 
+4> git branch -d branchName  (gives a error warning if it is not merged)
+if you still want to delete it use 
+5>git branch -D branchName 
+If branch is already merged then below command will work fine  
+6> git branch -d branchname  
+-----------------------------------
+Pushing branch to remote Repository (Video 18 )
+Making a new branch (eg bugfix)
+1> git checkout -b bugfix
+2> git push origin bugfix
+**Note : Stay in the same branch where you are pushing   
+Deleting a branch on Github
+3>git push -d origin bugfix 
+
+
